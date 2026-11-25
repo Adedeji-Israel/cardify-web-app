@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Cardify brand — green taken from the logo, page tint from app.cardify.co */
+  --color-brand-50: #eefdf3;
+  --color-brand-100: #d6f9e1;
+  --color-brand-200: #aef1c4;
+  --color-brand-300: #78e29f;
+  --color-brand-400: #3fcc77;
+  --color-brand-500: #18cc3f;
+  --color-brand-600: #12a733;
+  --color-brand-700: #0f8a2c;
+  --color-brand-800: #0c5a1d;
+  --color-brand-900: #0a3d17;
+  --color-ink: #14201a;
+  --color-muted: #5b6a62;
+  --color-surface: #f1f5fa;
+  --color-line: #e3e9e5;
+
+  --shadow-card: 0 1px 2px rgb(20 32 26 / 0.04), 0 8px 24px -8px rgb(20 32 26 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(20 32 26 / 0.05), 0 20px 40px -12px rgb(20 32 26 / 0.18);
+
+  --animate-float: float 6s ease-in-out infinite;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
